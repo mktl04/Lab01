@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-
 namespace Lab01_EFCore.Controllers
 {
     public class ProductController : Controller
@@ -24,6 +23,7 @@ namespace Lab01_EFCore.Controllers
         public IActionResult Index(int page = 1)
         {
             int pageSize = 7;
+            int offset = 2;
 
             var totalItems = _db.Products.Count();
             var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
@@ -37,7 +37,8 @@ namespace Lab01_EFCore.Controllers
 
             ViewBag.CurrentPage = page;
             ViewBag.TotalPages = totalPages;
-
+            ViewBag.from = Math.Max(1, page - offset);
+            ViewBag.to = Math.Min(totalPages, page + offset);
             return View(products);
         }
         public IActionResult Add()

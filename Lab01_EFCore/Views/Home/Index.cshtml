@@ -1,9 +1,21 @@
-﻿@{
+﻿@model List<Product>
+@{ 
     ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+} 
+<div class="row products">
+    <partial name="_ProductPartial" />
 </div>
-    
+<div class="text-center mt-2">
+    <button id="btnLoadMore" class="btn btn-primary">Tải thêm</button>
+</div>
+@section Scripts{ 
+<script>
+    let currentPage = 2;
+    $("#btnLoadMore").click(function () { loadPage(page); currentPage++; })
+    let loadPage = (page) => {
+        $.ajax({
+            url: "/Home/LoadMore", data: { page: page }, success: function (data) { if ($.trim(data) === ' ') $("#btnLoadMore").hide(); else $(".product").append(data) }
+        })
+    }
+</script>
+}

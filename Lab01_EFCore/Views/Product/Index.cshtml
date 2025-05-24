@@ -20,27 +20,27 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var x in Model)
+        @foreach (var product in Model)
             {
                 <tr>
                     <td>
-                        @x.Name
+                        @product.Name
                     </td>
                     <td>
-                        @x.Price
+                        @product.Price
                     </td>
                     <td>
-                        @x.Category.Name
+                        @product.Category.Name
                     </td>
                     <td>
-                        @if (x.ImageUrl != null) 
+                        @if (product.ImageUrl != null) 
                          { 
-                         <img  src="@x.ImageUrl" style="width: 100px"/>
+                         <img  src="@product.ImageUrl" style="width: 100px"/>
                          }
                     </td>
                     <td>
-                        <a asp-action="Update" asp-route-id="@x.Id" class="btn btn-success"><i class="bi bi-pencil-square"></i>Sửa</a>
-                        <a asp-action="Delete" asp-route-id="@x.Id" class="btn btn-danger"><i class="bi bi-trash"></i>Xóa</a>
+                        <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-success"><i class="bi bi-pencil-square"></i>Sửa</a>
+                        <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger"><i class="bi bi-trash"></i>Xóa</a>
                     </td>
                 </tr>
          }

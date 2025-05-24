@@ -1,0 +1,16 @@
+﻿﻿@model Category
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <h2>Xác nhận xóa Category</h2>
+    <hr />
+    <div class="form-group">
+        <label>Tên Category: </label>
+        <input asp-for="Name" disabled class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Order: </label>
+        <input asp-for="DisplayOrder" disabled class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-danger"> Đồng ý xóa </button>
+    <a asp-action="Index" class="btn btn-secondary"> Quay lại </a>
+</form>
