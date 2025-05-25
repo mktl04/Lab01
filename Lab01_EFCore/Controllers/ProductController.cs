@@ -43,7 +43,7 @@ namespace Lab01_EFCore.Controllers
         }
         public IActionResult Add()
         {
-            ViewBag.TL = _db.Categories.Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name });
+            ViewBag.CategoryList = _db.Categories.Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name });
             return View();
         }
         [HttpPost]

@@ -9,10 +9,12 @@ namespace Lab01_EFCore.Models
     public class Product
     {
         public int Id { get; set; }
-        [Required, StringLength(200)]
+        [Required(ErrorMessage = "Tên không được để trống")]
+        [StringLength(200, ErrorMessage = "Tên không được vượt quá 200 ký tự.")]
         public string Name { get; set; }
         public string Description { get; set; }
-        [Required, StringLength(200)]
+        [Required(ErrorMessage = "* Giá không được để trống")]
+        [Range(1, 9999999, ErrorMessage = "Giá phải nằm trong khoảng từ 1 đến 9999999")]
         public double Price { get; set; }
         public int CategoryId { get; set; }
         //khai báo mối kết hợp 1-n
