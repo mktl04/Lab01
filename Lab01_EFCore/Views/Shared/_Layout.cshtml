@@ -9,27 +9,28 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-success" data-bs-theme="light">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-info" data-bs-theme="light">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Lab01_EFCore</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Web bán hàng</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex text-bg-warning" id="navbarColor02">
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between text-bg-warning" id="navbarColor02">
                     <ul class="navbar-nav me-auto">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Chính sách</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Quản lý sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Quản lý loại sản phẩm</a>
+                        </li>
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>

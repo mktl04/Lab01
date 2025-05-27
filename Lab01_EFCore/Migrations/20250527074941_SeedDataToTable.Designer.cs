@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab01_EFCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250513085436_SendDataToTable")]
-    partial class SendDataToTable
+    [Migration("20250527074941_SeedDataToTable")]
+    partial class SeedDataToTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
