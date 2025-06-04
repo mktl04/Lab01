@@ -1,0 +1,32 @@
+﻿@model List<Product>
+@{ 
+    ViewData["Title"] = "Home Page";
+} 
+<div class="row products">
+    <partial name="_ProductPartial" />
+</div>
+<div class="text-center mt-2">
+    <button id="btnLoadMore" class="btn btn-primary">Tải thêm</button>
+</div>
+@section Scripts{ 
+<script>
+    let currentPage = 2;
+    $("#btnLoadMore").click(function () {
+        loadPage(currentPage);
+        currentPage++;
+    });
+    let loadPage = (page) => {
+        $.ajax({
+            url: 'Customer/Home/LoadMore',
+            data: { page: page },
+            success: function (data) {
+                if (data.length > 0) {
+                    $('.products').append(data);
+                } else {
+                    $('#btnLoadMore').hide();
+                }
+            }
+        });
+    }
+</script>
+}

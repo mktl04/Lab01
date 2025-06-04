@@ -1,37 +1,39 @@
-﻿using Lab01_EFCore.Models;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+using Lab01_EFCore.Models;
 
-namespace Lab01_EFCore.Controllers
+namespace Lab01_EFCore.Areas.Customer.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
-        private ApplicationDbContext _db;
         private readonly ILogger<HomeController> _logger;
+        private ApplicationDbContext _db;
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
         {
             _logger = logger;
             _db = db;
         }
-        public IActionResult Index()
+
+        public IActionResult Index(int page = 1)
         {
-            var pageSize = 4;
-            var dsSanPham = _db.Products.Include(x => x.Category).ToList();
-            return View(dsSanPham.Skip(0).Take(pageSize).ToList());
+            var pageSize = 6;
+            var products = _db.Products.ToList();
+            return View(products.Skip((page - 1) * pageSize).Take(pageSize).ToList());
         }
+
         public IActionResult LoadMore(int page = 1)
         {
-            var pageSize = 4;
-            var dsSanPham = _db.Products.Include(x => x.Category).ToList();
-            return PartialView("_ProductPartial", dsSanPham.Skip((page - 1) * pageSize).Take(pageSize).ToList());
+            var pageSize = 6;
+            var products = _db.Products.ToList();
+            return PartialView("_ProductPartial", products.Skip((page - 1) * pageSize).Take(pageSize).ToList());
         }
 
         public IActionResult Privacy()

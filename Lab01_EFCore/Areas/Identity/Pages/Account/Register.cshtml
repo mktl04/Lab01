@@ -13,17 +13,17 @@
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Input.Email"></label>
+                <label asp-for="Input.Email">Email</label>
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.Password"></label>
+                <label asp-for="Input.Password">Password</label>
                 <input asp-for="Input.Password" class="form-control" />
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
+                <label asp-for="Input.ConfirmPassword">Re-enter Password</label>
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
@@ -39,7 +39,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Input.Role"></label>
-                <select asp-for="Input.Role" class="form-control" asp-items="@Model.Input.RoleList"></select>
+                <select asp-for="Input.Role" class="form-control" asp-items="@Model.Input.RoleList">
+                    <option value="" disabled selected>--Select Vai Trò--</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Đăng ký</button>
         </form>

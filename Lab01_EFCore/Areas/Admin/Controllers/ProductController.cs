@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-namespace Lab01_EFCore.Controllers
+using Microsoft.AspNetCore.Authorization;
+
+namespace Lab01_EFCore.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private ApplicationDbContext _db;

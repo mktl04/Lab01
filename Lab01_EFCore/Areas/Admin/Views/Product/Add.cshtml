@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Product
+<form asp-action="Add" method="post" enctype="multipart/form-data">
+    <h2>Thêm sản phẩm</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group pb-2">
+                <label>Tên SP</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group pb-2">
+                <label>Mô tả</label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group pb-2">
+                <label>Giá</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group pb-2">
+                <label>Loại SP</label>
+                <select asp-for="CategoryId" asp-items="@ViewBag.CategoryList" class="form-control">
+                    <option disabled selected>Chọn loại sản phẩm</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group pb-2">
+                <label>Product Image</label>
+                <input asp-for="ImageUrl" type="file" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary"> Lưu </button>
+    <a asp-action="Index" class="btn btn-secondary"> Quay lại danh sách</a>
+</form>

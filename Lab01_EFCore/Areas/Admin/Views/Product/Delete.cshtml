@@ -1,0 +1,11 @@
+﻿@model Product
+<form asp-action="Delete" method="post">
+    <h2>Xác nhận xóa sản phẩm</h2>
+    <hr />
+    <input asp-for="Id" type="hidden" />
+    <div class="alert alert-info">
+        Bạn có muốn xóa @Model.Name?
+    </div>
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách SP</a>
+</form>
