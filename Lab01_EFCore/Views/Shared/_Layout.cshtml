@@ -28,13 +28,16 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="Product" asp-action="Index">Quản lý sản phẩm</a>
                             </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Category" asp-action="Index">Quản lý loại sản phẩm</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Category" asp-action="Index">Quản lý loại sản phẩm</a>
+                            </li>
                         }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
+                <form asp-action="Index" asp-controller="Cart" class="d-flex">
+                    <button class="btn btn-outline-light" type="submit"><i class="bi-cart-fill me-1"></i> Giỏ hàng của bạn <span class="showcart badge bg-light text-info ms-1 rounded-pill">0</span></button>
+                </form>
             </div>
         </nav>
     </header>

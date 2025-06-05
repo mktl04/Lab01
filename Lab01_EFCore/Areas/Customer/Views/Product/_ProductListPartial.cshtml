@@ -8,7 +8,7 @@
                 <h5 class="card-header text-center">@product.Name</h5>
                 @if (!string.IsNullOrEmpty(product.ImageUrl))
                 {
-                    <img src="/@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 300px;width: 300px; object-position: 50%, 50%;"/>
+                    <img src="/@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 200px; object-fit: contain"/>
                 }
                 else
                 {
@@ -20,8 +20,8 @@
                 }
                 <div class="card-body text-center">
                     <p class="card-text text-muted">Price: @product.Price USD</p>
-                    <a href="#" class="btn btn-outline-primary btn-sm me-2">Detail</a>
-                    <a href="#" class="btn btn-outline-success btn-sm">Add to Cart</a>
+                    <a href="#" class="btn btn-outline-primary btn-sm me-2">Chi tiết</a>
+                    <a href="#" class="btn btn-outline-success btn-sm">Thêm vào giỏ hàng</a>
                 </div>
             </div>
         </div>
