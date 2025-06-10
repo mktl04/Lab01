@@ -83,7 +83,7 @@ namespace Lab01_EFCore.Areas.Customer.Controllers
                 }
                 cart.Add(product, 1);
                 HttpContext.Session.SetJSon("CART", cart);
-                return Json(new { msg = "Product added to cart", qty = cart.Quantity });
+                return Json(new { msg = "Product added to cart", quanty = cart.Quantity });
             }
             return Json(new { msg = "error" });
         }
@@ -93,9 +93,9 @@ namespace Lab01_EFCore.Areas.Customer.Controllers
             if (cart != null)
             {
 
-                return Json(new { qty = cart.Quantity });
+                return Json(new { quanty = cart.Quantity });
             }
-            return Json(new { qty = 0 });
+            return Json(new { quanty = 0 });
         }
     }
 }

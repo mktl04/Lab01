@@ -21,7 +21,7 @@
                 <div class="card-body text-center">
                     <p class="card-text text-muted">Price: @product.Price USD</p>
                     <a href="#" class="btn btn-outline-primary btn-sm me-2">Chi tiết</a>
-                    <a href="#" class="btn btn-outline-success btn-sm">Thêm vào giỏ hàng</a>
+                    <a class="addtocart card-link btn btn-outline-info" data-productId="@product.Id" asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@product.Id">Thêm vào giỏ hàng</a>
                 </div>
             </div>
         </div>
